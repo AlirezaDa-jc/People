@@ -15,13 +15,13 @@ public class PersonRepositoryImpl extends BaseRepositoryImpl<Person,Long> implem
     }
 
     @Override
-    public Person findByName(String aquariumName) {
+    public Person findByName(String personName) {
         em.getTransaction().begin();
         TypedQuery<Person> query = em.createQuery(
-                "SELECT u FROM Aquarium u where u.name=:userName",
+                "SELECT u FROM Person u where u.firstName=:userName",
                 Person.class);
 
-        query.setParameter("userName", aquariumName);
+        query.setParameter("userName", personName);
         List<Person> resultList = query.getResultList();
         em.getTransaction().commit();
         if (resultList.size() > 0) {

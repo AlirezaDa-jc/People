@@ -1,13 +1,11 @@
 package ir.maktab.domains;
 
 
-
-
 import ir.maktab.base.domains.BaseEntity;
 
-import javax.persistence.*;
-import java.util.LinkedList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
@@ -18,6 +16,15 @@ public class Person extends BaseEntity<Long> {
     private String lastName;
     @Column(name = "phonenumber")
     private long phoneNumber;
+
+    public Person() {
+    }
+
+    public Person(String firstName, String lastName, long phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getFirstName() {
         return firstName;

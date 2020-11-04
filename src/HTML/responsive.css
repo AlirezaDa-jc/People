@@ -1,0 +1,26 @@
+
+.box{
+    height: max-content;
+}
+.grey{
+    background-color: grey;
+}
+
+.blue{
+    background-color: rgb(60,138,228);
+}
+.yellow{
+    background-color: rgb(231,187,93);
+}
+.green{
+    background-color: rgb(93,231,190);
+}
+.red{
+    background-color: rgb(231,93,127);
+}
+.colors{
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+    height: 200px;
+}

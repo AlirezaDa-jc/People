@@ -16,7 +16,7 @@ public class AddPersonServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             String firstName = req.getParameter("firstname");
-            String lastName = req.getParameter("type");
+            String lastName = req.getParameter("lastname");
             long phoneNumber = Long.parseLong(req.getParameter("phonenumber"));
             PersonService personService = MyApp.getPersonService();
             Person person = new Person();
@@ -24,6 +24,9 @@ public class AddPersonServlet extends HttpServlet {
             person.setLastName(lastName);
             person.setPhoneNumber(phoneNumber);
             personService.saveOrUpdate(person);
+            if(personService.findAll().size() > 100){
+                resp.sendRedirect("export");
+            }
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
